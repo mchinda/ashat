@@ -23,4 +23,9 @@ export class CategorieController extends BaseController {
     super(categorieService);
   }
 
+  @Get('list')
+  getAllPoste() {
+   return this.categorieService.getCategories();
+   }
+
 }

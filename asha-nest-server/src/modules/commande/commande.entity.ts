@@ -11,9 +11,6 @@ export class CommandeEntity extends BaseEntity {
 @Column()
 numeroCommande:string;
 
-@Column({type: "timestamp"})
-date_commande:Date;
-
 @Column()
 adresse_livraison:string;
 
@@ -23,7 +20,6 @@ ligne_commande:LigneCommandeEntity[];
 @ManyToOne(type => ClientEntity, client => client.commande)
 @JoinColumn()
 client:ClientEntity;
-
 
 @OneToMany(type => FactureEntity, facture => facture.commande)
 facture:FactureEntity[];

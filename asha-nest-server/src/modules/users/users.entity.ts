@@ -4,6 +4,7 @@ import {BaseEntity} from './../../com/base.entity';
 import {RoleEntity} from './../roles/roles.entity';
 import {AutorisationEntity} from './../autorisation/autorisation.entity';
 import {FactureEntity} from './../facture/facture.entity';
+import {LivraisonEntity} from './../livraison/livraison.entity';
 
 import * as moment from 'moment';
 import * as bcrypt from 'bcrypt';
@@ -19,6 +20,9 @@ export class UsersEntity extends BaseEntity{
 
     @Column({default:null})
     departement: string;
+
+    @Column({default:null})
+    adresse: string;
 
     @Column()
     telephone: string;
@@ -51,5 +55,8 @@ export class UsersEntity extends BaseEntity{
 
     @OneToMany(type => FactureEntity, facture => facture.user)
     facture:FactureEntity[];
+
+    @OneToMany(type => LivraisonEntity, livraison => livraison.user)
+    livraison:LivraisonEntity[];
 
   }

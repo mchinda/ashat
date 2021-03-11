@@ -1,7 +1,8 @@
 import { Entity, Column, OneToOne, OneToMany, ManyToOne,JoinColumn,BeforeInsert, BeforeUpdate  } from 'typeorm';
 import { Transform } from 'class-transformer';
 import {BaseEntity} from './../../com/base.entity';
-import {ProduitEntity} from './../produit/produit.entity';
+import {LivraisonEntity} from './../livraison/livraison.entity';
+
 
 @Entity("fournisseur")
 export class FournisseurEntity extends BaseEntity {
@@ -27,7 +28,7 @@ ville:string;
 @Column()
 email_fournisseur:string;
 
-@OneToMany(type => ProduitEntity, produit => produit.fournisseur)
-produit:ProduitEntity[];
+@OneToMany(type => LivraisonEntity, livraison => livraison.fournisseur)
+livraison:LivraisonEntity[];
 
 }

@@ -12,13 +12,15 @@ import { UserModel } from './user.model';
 import { Pagination, PaginationOptionsInterface } from './../paginate';
 
 @Injectable()
-export class UsersService {
+export class UsersService extends BaseService {
   private saltRounds: number=10;
 
   constructor( private readonly jwtService: JwtService,
               @InjectRepository(UsersEntity) private readonly userRepository:Repository<UsersEntity>,
               @InjectRepository(RoleEntity) private readonly roleRepository:Repository<RoleEntity>,
               private emailConfigService:EmailConfigService){
+                super(userRepository);
+
         }
 
 

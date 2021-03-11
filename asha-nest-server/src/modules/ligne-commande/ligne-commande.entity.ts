@@ -10,6 +10,12 @@ export class LigneCommandeEntity extends BaseEntity {
 @Column()
 quantite:number;
 
+@Column({type: "timestamp"})
+date_commande:Date;
+
+@Column({ type: "float"})
+prix_vente: number;
+
 @ManyToOne(type => CommandeEntity, commande=> commande.ligne_commande)
 @JoinColumn()
 commande:CommandeEntity;

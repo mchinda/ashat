@@ -21,8 +21,8 @@ import { HandlebarsAdapter, MailerModule,PugAdapter } from '@nest-modules/mailer
                   port:3306,
                   password:"",
                   entities: [join(__dirname, 'modules/**/**.entity{.ts,.js}')],
-                  synchronize: true,
-                  dropSchema : true
+                  // synchronize: true,
+                  // dropSchema : true
             }),
             MailerModule.forRoot({
                transport: 'smtp://mchinda.mohamed@gmail.com:OpenJanvier2021,@smtp.gmail.com',

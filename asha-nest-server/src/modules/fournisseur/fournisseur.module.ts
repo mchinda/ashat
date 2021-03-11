@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { FournisseurService } from './fournisseur.service';
-import { FournisseurController } from './fournisseur.controller';
-import {ProduitEntity} from './../produit/produit.entity';
-import {FournisseurEntity} from './fournisseur.entity';
+import { FournisseurService } from './../fournisseur/fournisseur.service';
+import { FournisseurController } from './../fournisseur/fournisseur.controller';
+import {LivraisonEntity} from './../livraison/livraison.entity';
+import {FournisseurEntity} from './../fournisseur/fournisseur.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ProduitEntity,FournisseurEntity])],
+  imports: [TypeOrmModule.forFeature([FournisseurEntity,LivraisonEntity])],
   providers: [FournisseurService],
   controllers: [FournisseurController]
 })

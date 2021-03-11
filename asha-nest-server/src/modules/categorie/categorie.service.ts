@@ -13,4 +13,10 @@ export class CategorieService extends BaseService {
     super(categorieRepository);
   }
 
+    async getCategories(){
+      let listCats = await this.categorieRepository.find({
+        select : [`id`,`libelle`]
+      });
+      return listCats;
+    }
 }

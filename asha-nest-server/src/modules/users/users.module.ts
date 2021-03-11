@@ -9,6 +9,7 @@ import { RolesModule } from "./../roles/roles.module";
 import { EmailConfigService } from "./../emailconfig/emailconfig.service";
 import { EmailConfigModule } from "./../emailconfig/emailconfig.module";
 import { PassportModule } from '@nestjs/passport';
+import {LivraisonEntity} from './../livraison/livraison.entity';
 
 @Module({
   imports:[
@@ -20,7 +21,7 @@ import { PassportModule } from '@nestjs/passport';
         expiresIn: 3600,
       },
     }),
-  TypeOrmModule.forFeature([UsersEntity,RoleEntity]),RolesModule,EmailConfigModule],
+  TypeOrmModule.forFeature([UsersEntity,RoleEntity,LivraisonEntity]),RolesModule,EmailConfigModule],
   controllers: [UsersController],
   providers: [UsersService,EmailConfigService],
   exports:[UsersService]

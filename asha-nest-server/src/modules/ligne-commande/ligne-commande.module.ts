@@ -7,7 +7,7 @@ import { ProduitEntity } from './../produit/produit.entity';
 import { LigneCommandeEntity } from './ligne-commande.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([LigneCommandeEntity,ProduitEntity])],
+  imports: [TypeOrmModule.forFeature([LigneCommandeEntity,CommandeEntity,ProduitEntity])],
   providers: [LigneCommandeService],
   controllers: [LigneCommandeController]
 })

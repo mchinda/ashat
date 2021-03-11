@@ -2,8 +2,8 @@ import { Entity, Column, OneToOne, OneToMany, ManyToOne,JoinColumn,BeforeInsert,
 import { Transform } from 'class-transformer';
 import {BaseEntity} from './../../com/base.entity';
 import {LigneCommandeEntity} from './../ligne-commande/ligne-commande.entity';
+import {LigneLivraisonEntity} from './../ligne-livraison/ligne-livraison.entity';
 import {CategorieEntity} from './../categorie/categorie.entity';
-import {FournisseurEntity} from './../fournisseur/fournisseur.entity';
 import {StockEntity} from './../stock/stock.entity';
 
 @Entity("produit")
@@ -18,22 +18,18 @@ export class ProduitEntity extends BaseEntity {
   @Column()
   image:string;
 
-  @Column({ type: "float"})
-  prix_unitaire: number;
-
   @OneToMany(type => LigneCommandeEntity, ligneCommande => ligneCommande.produit)
   ligne_commande:LigneCommandeEntity[];
+
+  @OneToMany(type => LigneLivraisonEntity, ligne_livraison => ligne_livraison.livraison)
+  ligne_livraison:LigneLivraisonEntity[];
 
   @ManyToOne(type => CategorieEntity, cat => cat.produit)
   @JoinColumn()
   categorie:CategorieEntity;
 
-  @ManyToOne(type => FournisseurEntity, fournisseur => fournisseur.produit)
-  @JoinColumn()
-  fournisseur:FournisseurEntity;
-
   @ManyToOne(type => StockEntity, stock => stock.produit)
   @JoinColumn()
   stock:StockEntity;
-  
+
 }
